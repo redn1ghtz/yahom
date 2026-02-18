@@ -10,5 +10,5 @@
  * 4. Укажите тот же URL в OAUTH_REDIRECT_URI ниже
  */
 var YANDEX_OAUTH_CLIENT_ID = '5326f1996a4c4139b8abe1343a06600f';
-var API_USE_PROXY = true;
+var API_USE_PROXY = false;
 var OAUTH_REDIRECT_URI = '';  // Скопируйте URL с экрана входа и вставьте сюда. Тот же URL — в Redirect URI на oauth.yandex.ru
