@@ -8,6 +8,6 @@
  * - true — Vercel или python3 proxy.py (обход CORS)
  * - false — только GitHub Pages (API может не работать из-за CORS)
  */
-var YANDEX_OAUTH_CLIENT_ID = 'c161631e11ae42eba1870c0854cb9280';
+var YANDEX_OAUTH_CLIENT_ID = '5326f1996a4c4139b8abe1343a06600f';
 var API_USE_PROXY = true;
-var OAUTH_REDIRECT_URI = 'https://yahom.vercel.app/';
+var OAUTH_REDIRECT_URI = '';
