@@ -1283,18 +1283,22 @@
     };
 
     var oauthLink = $('oauthLink');
+    var redirectUriDisplay = $('redirectUriDisplay');
     if (oauthLink) {
       var clientId = (typeof YANDEX_OAUTH_CLIENT_ID !== 'undefined' ? YANDEX_OAUTH_CLIENT_ID : '') || '';
       var redirectUri;
-      if (typeof OAUTH_REDIRECT_URI !== 'undefined' && OAUTH_REDIRECT_URI) {
-        redirectUri = OAUTH_REDIRECT_URI;
+      var cfgRedirect = (typeof OAUTH_REDIRECT_URI !== 'undefined' ? OAUTH_REDIRECT_URI : '');
+      if (cfgRedirect && String(cfgRedirect).trim() && String(cfgRedirect).indexOf('ВАШ') === -1) {
+        redirectUri = String(cfgRedirect).trim();
       } else {
         var p = (location.pathname || '/').replace(/\/index\.html$/i, '');
         redirectUri = location.origin + (p === '/' ? '/' : p.replace(/\/?$/, '/'));
       }
+      if (redirectUriDisplay) redirectUriDisplay.textContent = redirectUri || '(не задан — укажите OAUTH_REDIRECT_URI в config.js)';
       oauthLink.href = clientId ? ('https://oauth.yandex.ru/authorize?response_type=token&client_id=' + encodeURIComponent(clientId) + '&redirect_uri=' + encodeURIComponent(redirectUri) + '&force_confirm=yes') : '#';
       oauthLink.onclick = function(e) {
         if (!clientId) { e.preventDefault(); showError('Укажите YANDEX_OAUTH_CLIENT_ID в config.js'); return false; }
+        if (!redirectUri) { e.preventDefault(); showError('Укажите OAUTH_REDIRECT_URI в config.js'); return false; }
       };
     }
   }
