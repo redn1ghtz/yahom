@@ -6,6 +6,6 @@
  * 3. API_USE_PROXY = false — для статического хостинга (прямые запросы к API)
  * 4. API_USE_PROXY = true — для локального запуска через python3 proxy.py
  */
-var YANDEX_OAUTH_CLIENT_ID = '5326f1996a4c4139b8abe1343a06600f';
+var YANDEX_OAUTH_CLIENT_ID = 'c161631e11ae42eba1870c0854cb9280';
 var API_USE_PROXY = false;
-var OAUTH_REDIRECT_URI = '';
+var OAUTH_REDIRECT_URI = 'https://yahom.vercel.app/';
